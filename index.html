@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Birthday Registry ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <header class="header">
+
+        <div class="heart">♡</div>
+
+        <div>
+            <p class="small-title">BIRTHDAY REGISTRY</p>
+
+            <h1>Things I'd Love ♡</h1>
+
+            <p class="subtitle">
+                A little collection of things on my wishlist.
+            </p>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- CATEGORY BUTTONS -->
+
+        <div class="categories">
+
+            <button
+                class="category active"
+                onclick="filterGifts('all')"
+            >
+                All
+            </button>
+
+            <button
+                class="category"
+                onclick="filterGifts('gaming')"
+            >
+                🎮 Gaming
+            </button>
+
+            <button
+                class="category"
+                onclick="filterGifts('books')"
+            >
+                📚 Books
+            </button>
+
+            <button
+                class="category"
+                onclick="filterGifts('clothes')"
+            >
+                👕 Clothes
+            </button>
+
+            <button
+                class="category"
+                onclick="filterGifts('other')"
+            >
+                ✨ Other
+            </button>
+
+        </div>
+
+
+        <!-- GIFT GRID -->
+
+        <div
+            id="giftGrid"
+            class="gift-grid"
+        ></div>
+
+    </main>
+
+
+    <!-- GIFT POPUP -->
+
+    <div
+        id="giftModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="close"
+                onclick="closeModal()"
+            >
+                ×
+            </button>
+
+
+            <img
+                id="modalImage"
+                src=""
+                alt=""
+            >
+
+
+            <div class="modal-category"
+                id="modalCategory">
+            </div>
+
+
+            <h2 id="modalName"></h2>
+
+
+            <p
+                id="modalDescription"
+                class="modal-description"
+            ></p>
+
+
+            <div
+                id="modalPrice"
+                class="modal-price"
+            ></div>
+
+
+            <div
+                id="modalStatus"
+                class="modal-status"
+            >
+            </div>
+
+
+            <button
+                id="selectButton"
+                class="primary-button"
+            >
+                Select this gift ♡
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
