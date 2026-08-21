@@ -10,7 +10,7 @@ const gifts = [
         category: "electronics",
         description:
             "A charging station for Nintendo Switch Joy-Cons.",
-        price: null,
+        price: Price varies by seller
         image:
             "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3"
     },
@@ -20,21 +20,21 @@ const gifts = [
         name: "Pink Joy-Cons",
         category: "electronics",
         description:
-            "Pink Nintendo Switch Joy-Con controllers.",
-        price: null,
+            "Pink Nintendo Switch Joy-Con controllers. (may available sa ToysRUs Robinsinson's branch)",
+        price: ₱4109.00
         image:
-            "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3"
+            "https://share.google/TNILDXTfgxrMTSO3r"
     },
 
     {
         id: "electronics-003",
-        name: "Nintendo Switch Case",
+        name: "Clear Nintendo Switch Case",
         category: "electronics",
         description:
-            "A Nintendo Switch case that is dock-friendly.",
-        price: null,
+            "A Nintendo Switch case that is dock-friendly. Preferably",
+        price: Price varies by seller
         image:
-            "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3"
+            "https://share.google/3SnGzLGv57rfF3bW7"
     },
 
     {
