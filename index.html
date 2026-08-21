@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,135 +10,163 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Ari's 18th Birthday Registry ♡</title>
+    <title>Birthday Registry ♡</title>
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
 
 
 <body>
 
+    <!-- HEADER -->
+
     <header class="header">
 
-        <div class="heart">♡</div>
+        <div class="heart">
+            ♡
+        </div>
 
         <div>
-            <p class="small-title">BIRTHDAY BASH</p>
 
-            <h1>Things I'd Love ♡</h1>
+            <div class="eyebrow">
+                BIRTHDAY REGISTRY
+            </div>
+
+            <h1>
+                Things I'd Love ♡
+            </h1>
 
             <p class="subtitle">
-                A simple custom gift registry, designed by yours truly! 🎁💗
-
-Just a little something to make gift planning easier and help everyone find something I’d love! 🫶 No pressure, of course! :)) 
+                A little collection of things on my wishlist.
             </p>
+
         </div>
 
     </header>
 
 
+    <!-- MAIN CONTENT -->
+
     <main>
 
-        <!-- CATEGORY BUTTONS -->
-
-        <div class="categories">
-
-     <div class="categories">
-
-    <button
-        class="category active"
-        onclick="filterGifts('all')"
-    >
-        All
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGifts('electronics')"
-    >
-        🎮 Electronics
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGifts('miscellaneous')"
-    >
-        ✨ Miscellaneous
-    </button>
-
-    <button
-        class="category"
-        onclick="filterGifts('book collections')"
-    >
-        📚 Book Collections
-    </button>
-
-</div>
-
-        <!-- GIFT GRID -->
+        <!-- CATEGORIES -->
 
         <div
-            id="giftGrid"
+            class="categories"
+            id="categories"
+        >
+
+            <button
+                class="category active"
+                data-category="all"
+            >
+                All
+            </button>
+
+            <button
+                class="category"
+                data-category="electronics"
+            >
+                🎮 Electronics
+            </button>
+
+            <button
+                class="category"
+                data-category="miscellaneous"
+            >
+                ✨ Miscellaneous
+            </button>
+
+            <button
+                class="category"
+                data-category="books"
+            >
+                📚 Book Collections
+            </button>
+
+        </div>
+
+
+        <!-- GIFT CARDS WILL APPEAR HERE -->
+
+        <div
             class="gift-grid"
+            id="giftGrid"
         ></div>
 
     </main>
 
 
-    <!-- GIFT POPUP -->
+    <!-- GIFT MODAL -->
 
     <div
-        id="giftModal"
         class="modal hidden"
+        id="giftModal"
     >
 
         <div class="modal-content">
 
             <button
-                class="close"
-                onclick="closeModal()"
+                class="close-button"
+                id="closeModal"
+                aria-label="Close"
             >
                 ×
             </button>
 
 
-            <img
-                id="modalImage"
-                src=""
-                alt=""
+            <div
+                class="modal-image-wrapper"
+                id="modalImageWrapper"
             >
 
+                <img
+                    id="modalImage"
+                    src=""
+                    alt=""
+                >
 
-            <div class="modal-category"
-                id="modalCategory">
             </div>
 
 
-            <h2 id="modalName"></h2>
+            <div
+                class="modal-category"
+                id="modalCategory"
+            ></div>
+
+
+            <h2
+                id="modalName"
+            ></h2>
 
 
             <p
-                id="modalDescription"
                 class="modal-description"
+                id="modalDescription"
             ></p>
 
 
             <div
-                id="modalPrice"
                 class="modal-price"
+                id="modalPrice"
             ></div>
 
 
             <div
-                id="modalStatus"
                 class="modal-status"
+                id="modalStatus"
             >
+                ♡ Available
             </div>
 
 
             <button
-                id="selectButton"
                 class="primary-button"
+                id="selectButton"
             >
                 Select this gift ♡
             </button>
