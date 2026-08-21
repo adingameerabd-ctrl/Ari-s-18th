@@ -23,7 +23,7 @@ const gifts = [
             "Pink Nintendo Switch Joy-Con controllers. (may available sa ToysRUs Robinsinson's branch)",
         price: ₱4109.00
         image:
-            "https://share.google/TNILDXTfgxrMTSO3r"
+            "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3"
     },
 
     {
@@ -34,7 +34,7 @@ const gifts = [
             "A Nintendo Switch case that is dock-friendly. Preferably",
         price: Price varies by seller
         image:
-            "https://share.google/3SnGzLGv57rfF3bW7"
+            "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3"
     },
 
     {
