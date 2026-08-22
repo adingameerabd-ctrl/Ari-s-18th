@@ -105,284 +105,612 @@ onAuthStateChanged(
 // ========================================
 
 const gifts = [
+// ========================================
+// GIFTS
+// ========================================
+
+const gifts = [
+
+    // ========================================
+    // I. ELECTRONICS — SWITCH ACCESSORIES
+    // ========================================
 
     {
         id: "switch-charging-station",
+
         name: "N1 Joy-Con Charging Station",
+
         category: "electronics",
+
         section: "Switch Accessories",
+
         description:
             "A charging station for my Switch because my right Joy-Con isn't charging properly.",
+
         price: "Varies by seller",
+
         emoji: "🔋🎮",
+
+        image: "images/switch-charging-station.jpg",
+
+        reference:
+            "https://share.google/O76lDy5YBKwnk0OZE",
+
         jointGift: true
     },
+
 
     {
         id: "pink-joycons",
+
         name: "Nintendo Switch Pink Joy-Cons",
+
         category: "electronics",
+
         section: "Switch Accessories",
+
         description:
-            "Because my controllers arent charging properly",
-        price: "Price Varies",
+            "There are some at the Robinsons Toys 'R' Us branch for around ₱4,106, but the price may differ depending on where they're bought.",
+
+        price: "Around ₱4,106*",
+
         emoji: "🩷🎮",
+
+        image: "images/pink-joycons.jpg",
+
+        reference:
+            "https://share.google/NzgQW1r0bhOf4Lr2k",
+
         jointGift: true
     },
+
 
     {
         id: "switch-case",
+
         name: "Nintendo Switch Case — Dock-Friendly",
+
         category: "electronics",
+
         section: "Switch Accessories",
+
         description:
             "A case for my Switch so I can have protection without sacrificing charging capacity. Preferably clear or white!",
+
         price: "Varies by seller",
+
         emoji: "🎮🤍",
+
+        image: "images/switch-case.jpg",
+
+        reference:
+            "https://share.google/ysTNoeMbaMwaogwt2",
+
         jointGift: true
     },
+
+
+    // ========================================
+    // I. ELECTRONICS — SWITCH GAMES
+    // ========================================
 
     {
         id: "enter-the-gungeon",
+
         name: "Enter the Gungeon",
+
         category: "electronics",
+
         section: "Switch Games",
+
         description:
-            "Enter the Gungeon is a fast-paced bullet hell dungeon crawler video game developed by Dodge Roll and published by Devolver Digital. Players choose a misfit hero seeking to change their past by finding a legendary gun that can kill history",
+            "A fast-paced bullet-hell dungeon crawler where you explore a constantly changing gun-themed dungeon, fight enemies and bosses, collect strange weapons, and search for the legendary gun that can kill the past.",
+
         price: "Varies by seller",
+
         emoji: "🎮",
+
+        image: "images/enter-the-gungeon.jpg",
+
         jointGift: true
     },
+
 
     {
         id: "cult-of-the-lamb",
+
         name: "Cult of the Lamb",
+
         category: "electronics",
+
         section: "Switch Games",
+
         description:
-            "Cult of the Lamb is an action-adventure roguelike and base management game where you play as an adorable, possessed lamb saved from sacrifice by an imprisoned deity. To repay your debt, you must build a loyal woodland following, perform dark rituals, and defeat rival religious leaders in fast-paced dungeons.",
+            "A cute-but-dark action game where you play as a possessed lamb who builds and manages a loyal woodland cult while exploring mysterious regions and battling rival forces.",
+
         price: "Varies by seller",
+
         emoji: "🐑",
+
+        image: "images/cult-of-the-lamb.jpg",
+
         jointGift: true
     },
+
 
     {
         id: "super-smash-bros",
-        name: "Super Smash Bros.",
+
+        name: "Super Smash Bros. Ultimate",
+
         category: "electronics",
+
         section: "Switch Games",
+
         description:
-            "Super Smash Bros. is a series of platform fighting video games published by Nintendo. Created by Masahiro Sakurai, the Super Smash Bros. series is a crossover featuring many characters from other video game series created by Nintendo and other developers.",
+            "A crossover fighting game featuring Nintendo characters and fighters from across gaming. Battle on tons of stages with friends locally, online, or against the computer.",
+
         price: "Varies by seller",
+
         emoji: "🥊",
+
+        image: "images/super-smash-bros.jpg",
+
         jointGift: true
     },
 
+
     {
         id: "surprise-game",
+
         name: "Surprise Me lol",
+
         category: "electronics",
+
         section: "Switch Games",
+
         description:
             "A Nintendo Switch game of your choice. Surprise me! lol",
+
         price: "Up to you ♡",
+
         emoji: "🎁",
+
+        image: "",
+
         jointGift: false,
+
         unlimited: true
     },
+
+
+    // ========================================
+    // II. MISCELLANEOUS
+    // ========================================
 
     {
         id: "avatar",
+
         name: "Avatar — James Cameron's Avatar",
+
         category: "miscellaneous",
+
         section: "Miscellaneous",
+
         description:
-            "Anything from James Cameron's Avatar franchise!",
+            "Anything from James Cameron's Avatar franchise! Figures, collectibles, books, decorations, merch, etc. Go wild with the topic.",
+
         price: "Up to you ♡",
+
         emoji: "🌊",
+
+        image: "images/avatar.jpg",
+
+        reference:
+            "https://share.google/O76lDy5YBKwnk0OZE",
+
+        jointGift: false,
+
         unlimited: true
     },
+
 
     {
         id: "ever-after-high",
+
         name: "Ever After High",
+
         category: "miscellaneous",
+
         section: "Miscellaneous",
+
         description:
-            "Anything Ever After High related!",
+            "Anything Ever After High related! Dolls, accessories, collectibles, merch, art, etc.",
+
         price: "Up to you ♡",
+
         emoji: "👑",
+
+        image: "images/ever-after-high.jpg",
+
+        reference:
+            "https://pin.it/4V4COxtdH",
+
+        jointGift: false,
+
         unlimited: true
     },
+
 
     {
         id: "monster-high",
+
         name: "Monster High",
+
         category: "miscellaneous",
+
         section: "Miscellaneous",
+
         description:
-            "Anything Monster High related!",
+            "Anything Monster High related! Dolls, accessories, collectibles, merch, art, etc.",
+
         price: "Up to you ♡",
+
         emoji: "💀",
+
+        image: "images/monster-high.jpg",
+
+        reference:
+            "https://pin.it/43l4xo99v",
+
+        jointGift: false,
+
         unlimited: true
     },
+
 
     {
         id: "marine-moth",
+
         name: "Anything Marine or Moth Related",
+
         category: "miscellaneous",
+
         section: "Miscellaneous",
+
         description:
-            "Anything marine or moth related!",
+            "Anything marine or moth related! Sea creatures, nautical things, moths, art, decorations, accessories, plushies, collectibles — basically anything you think fits.",
+
         price: "Up to you ♡",
+
         emoji: "🐋🦋",
+
+        image: "images/marine-moth.jpg",
+
+        reference:
+            "https://pin.it/B94IMDmpq",
+
+        jointGift: false,
+
         unlimited: true
     },
+
 
     {
         id: "dnd-dice",
+
         name: "D&D Dice Sets",
+
         category: "miscellaneous",
+
         section: "Miscellaneous",
+
         description:
-            "A cool set of D&D dice!",
+            "A cool set of D&D dice. Feel free to choose whatever colors, theme, or design you think I'd like!",
+
         price: "Up to you ♡",
+
         emoji: "🎲",
+
+        image: "images/dnd-dice.jpg",
+
+        reference:
+            "https://pin.it/3k85XACJI",
+
+        jointGift: false,
+
         unlimited: true
     },
+
 
     {
         id: "how-to-train-your-dragon",
+
         name: "How to Train Your Dragon",
+
         category: "miscellaneous",
+
         section: "Miscellaneous",
+
         description:
-            "Anything from How to Train Your Dragon!",
+            "Anything from How to Train Your Dragon! Merch, collectibles, books, decorations, etc.",
+
         price: "Up to you ♡",
+
         emoji: "🐉",
+
+        image: "images/how-to-train-your-dragon.jpg",
+
+        reference:
+            "https://pin.it/76XvOxBmk",
+
+        jointGift: false,
+
         unlimited: true
     },
+
 
     {
         id: "existing-fandom-merch",
+
         name: "Merch From the Games or Books on My Wishlist",
+
         category: "miscellaneous",
+
         section: "Miscellaneous",
+
         description:
-            "Any merch related to the games or books mentioned elsewhere in this registry.",
+            "Any merch related to the games or books mentioned elsewhere in this registry. Surprise me!",
+
         price: "Up to you ♡",
+
         emoji: "✨",
+
+        image: "images/existing-fandom-merch.jpg",
+
+        reference:
+            "https://pin.it/RXuruO2JU",
+
+        jointGift: false,
+
         unlimited: true
     },
 
+
+    // ========================================
+    // III. BOOK COLLECTIONS
+    // ========================================
+
+
+    // ----------------------------------------
+    // A SERIES OF UNFORTUNATE EVENTS
+    // ----------------------------------------
+
     {
         id: "wide-window",
+
         name: "The Wide Window",
+
         category: "books",
+
         section: "A Series of Unfortunate Events",
+
         description:
-            "A Series of Unfortunate Events — Book 3 by Lemony Snicket.",
+            "Book 3, where Violet, Klaus, and Sunny are sent to live with their fearful Aunt Josephine near Lake Lachrymose, only to face Count Olaf, dangerous leeches, and a race through a hurricane.",
+
         price: "Varies by seller",
-        emoji: "📖"
+
+        emoji: "🛥️📖",
+
+        image: "images/wide-window.jpg",
+
+        jointGift: false
     },
+
 
     {
         id: "ersatz-elevator",
+
         name: "The Ersatz Elevator",
+
         category: "books",
+
         section: "A Series of Unfortunate Events",
+
         description:
-            "A Series of Unfortunate Events — Book 6 by Lemony Snicket.",
+            "Book 6, where the Baudelaire orphans move into a luxurious penthouse with the wealthy Squalors and uncover a secret passage, a suspicious auction, and another scheme involving Count Olaf.",
+
         price: "Varies by seller",
-        emoji: "📖"
+
+        emoji: "🏙️📖",
+
+        image: "images/ersatz-elevator.jpg",
+
+        jointGift: false
     },
+
 
     {
         id: "vile-village",
+
         name: "The Vile Village",
+
         category: "books",
+
         section: "A Series of Unfortunate Events",
+
         description:
-            "A Series of Unfortunate Events — Book 7 by Lemony Snicket.",
+            "Book 7, where the Baudelaires are placed under the care of an entire village governed by bizarre rules, while Count Olaf and the mysterious V.F.D. continue to complicate their lives.",
+
         price: "Varies by seller",
-        emoji: "📖"
+
+        emoji: "🐦‍⬛📖",
+
+        image: "images/vile-village.jpg",
+
+        jointGift: false
     },
+
 
     {
         id: "carnivorous-carnival",
+
         name: "The Carnivorous Carnival",
+
         category: "books",
+
         section: "A Series of Unfortunate Events",
+
         description:
-            "A Series of Unfortunate Events — Book 9 by Lemony Snicket.",
+            "Book 9, where Violet, Klaus, and Sunny infiltrate Caligari Carnival while following clues about Count Olaf and searching for answers about the mysterious V.F.D.",
+
         price: "Varies by seller",
-        emoji: "📖"
+
+        emoji: "🎡📖",
+
+        image: "images/carnivorous-carnival.jpg",
+
+        jointGift: false
     },
+
+
+    // ----------------------------------------
+    // TRESE
+    // ----------------------------------------
 
     {
         id: "trese-mass-murders",
+
         name: "TRESE: Mass Murders",
+
         category: "books",
+
         section: "TRESE",
+
         description:
-            "TRESE — Book 3 by Budjette Tan and Kajo Baldisimo.",
+            "Book 3 of TRESE, following Alexandra Trese as supernatural crimes in Metro Manila become increasingly dangerous, involving ancient forces, strange rituals, and a threat demanding blood and sacrifice.",
+
         price: "Varies by seller",
-        emoji: "📕"
+
+        emoji: "🚊📕",
+
+        image: "images/trese-mass-murders.jpg",
+
+        jointGift: false
     },
+
 
     {
         id: "trese-high-tide",
+
         name: "TRESE: High Tide at Midnight",
+
         category: "books",
+
         section: "TRESE",
+
         description:
-            "TRESE — Book 6 by Budjette Tan and Kajo Baldisimo.",
+            "Book 6, where relentless flooding brings supernatural dangers to Manila while privileged parties continue above the rising waters. Alexandra Trese investigates a series of murders and mysteries as midnight approaches.",
+
         price: "Varies by seller",
-        emoji: "📕"
+
+        emoji: "🌊📕",
+
+        image: "images/trese-high-tide.jpg",
+
+        jointGift: false
     },
+
 
     {
         id: "trese-shadow-witness",
+
         name: "TRESE: Shadow Witness",
+
         category: "books",
+
         section: "TRESE",
+
         description:
-            "TRESE — Book 7 by Budjette Tan and Kajo Baldisimo.",
+            "Book 7, featuring four cases involving haunted MRT stations, an unusual restaurant, an ancient supernatural entity, and a forgotten piece of Philippine history.",
+
         price: "Varies by seller",
-        emoji: "📕"
+
+        emoji: "👤📕",
+
+        image: "images/trese-shadow-witness.jpg",
+
+        jointGift: false
     },
+
+
+    // ----------------------------------------
+    // AVATAR: THE LAST AIRBENDER
+    // ----------------------------------------
 
     {
         id: "dawn-of-yangchen",
+
         name: "Avatar: The Last Airbender — The Dawn of Yangchen",
+
         category: "books",
+
         section: "Avatar: The Last Airbender",
+
         description:
-            "Avatar: The Last Airbender novel.",
+            "The first Yangchen novel, following the young Air Nomad Avatar as she navigates political tensions, dangerous spirits, and a world where maintaining balance requires difficult choices.",
+
         price: "Varies by seller",
-        emoji: "🌊📖"
+
+        emoji: "☁️📖",
+
+        image: "images/dawn-of-yangchen.jpg",
+
+        jointGift: false
     },
+
 
     {
         id: "legacy-of-yangchen",
+
         name: "Avatar: The Last Airbender — The Legacy of Yangchen",
+
         category: "books",
+
         section: "Avatar: The Last Airbender",
+
         description:
-            "Avatar: The Last Airbender novel.",
+            "The second Yangchen novel, continuing her journey as Avatar and exploring the consequences of her decisions while she works to protect the Four Nations and preserve the fragile balance of the world.",
+
         price: "Varies by seller",
-        emoji: "🌊📖"
+
+        emoji: "💨📖",
+
+        image: "images/legacy-of-yangchen.jpg",
+
+        jointGift: false
     },
+
 
     {
         id: "rise-of-kyoshi",
+
         name: "Avatar: The Last Airbender — The Rise of Kyoshi",
+
         category: "books",
+
         section: "Avatar: The Last Airbender",
+
         description:
-            "Avatar: The Last Airbender novel.",
+            "The first Kyoshi novel, following the Earth Kingdom outcast who discovers she is the Avatar and must learn to master the four elements while confronting political corruption, powerful enemies, and her own complicated past.",
+
         price: "Varies by seller",
-        emoji: "🌊📖"
+
+        emoji: "🪨📖",
+
+        image: "images/rise-of-kyoshi.jpg",
+
+        jointGift: false
     }
 
 ];
