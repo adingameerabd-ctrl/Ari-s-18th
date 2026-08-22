@@ -31,7 +31,7 @@ import {
 
 const firebaseConfig = {
 
-    apiKey: "PASTE YOUR API KEY HERE",
+    apiKey: "AIzaSyDvamfquBqYWFrM22S6hWF71kI8LSgCx48",
 
     authDomain: "ber-thday-ni-ari.firebaseapp.com",
 
@@ -39,9 +39,11 @@ const firebaseConfig = {
 
     storageBucket: "ber-thday-ni-ari.firebasestorage.app",
 
-    messagingSenderId: "PASTE YOUR MESSAGING SENDER ID HERE",
+    messagingSenderId: "644102572585",
 
-    appId: "PASTE YOUR APP ID HERE"
+    appId: "1:644102572585:web:b40f911e0ab434a1e2ea38",
+    
+    measurementId: "G-TVQ426NXT5"
 
 };
 
