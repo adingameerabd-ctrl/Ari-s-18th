@@ -124,8 +124,8 @@ const gifts = [
         category: "electronics",
         section: "Switch Accessories",
         description:
-            "There are some at the Robinsons Toys 'R' Us branch for around ₱4,106, but the price may differ depending on where they're bought.",
-        price: "Around ₱4,106*",
+            "Because my controllers arent charging properly",
+        price: "Price Varies",
         emoji: "🩷🎮",
         jointGift: true
     },
@@ -148,7 +148,7 @@ const gifts = [
         category: "electronics",
         section: "Switch Games",
         description:
-            "Nintendo Switch game.",
+            "Enter the Gungeon is a fast-paced bullet hell dungeon crawler video game developed by Dodge Roll and published by Devolver Digital. Players choose a misfit hero seeking to change their past by finding a legendary gun that can kill history",
         price: "Varies by seller",
         emoji: "🎮",
         jointGift: true
@@ -160,7 +160,7 @@ const gifts = [
         category: "electronics",
         section: "Switch Games",
         description:
-            "Nintendo Switch game.",
+            "Cult of the Lamb is an action-adventure roguelike and base management game where you play as an adorable, possessed lamb saved from sacrifice by an imprisoned deity. To repay your debt, you must build a loyal woodland following, perform dark rituals, and defeat rival religious leaders in fast-paced dungeons.",
         price: "Varies by seller",
         emoji: "🐑",
         jointGift: true
@@ -172,7 +172,7 @@ const gifts = [
         category: "electronics",
         section: "Switch Games",
         description:
-            "Nintendo Switch game.",
+            "Super Smash Bros. is a series of platform fighting video games published by Nintendo. Created by Masahiro Sakurai, the Super Smash Bros. series is a crossover featuring many characters from other video game series created by Nintendo and other developers.",
         price: "Varies by seller",
         emoji: "🥊",
         jointGift: true
