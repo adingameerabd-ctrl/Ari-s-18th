@@ -1,35 +1,120 @@
 // ========================================
 // BIRTHDAY REGISTRY
+// FIREBASE + ANONYMOUS SELECTION SYSTEM
+// ========================================
+
+
+// ========================================
+// FIREBASE IMPORTS
+// ========================================
+
+import { initializeApp } from
+    "https://www.gstatic.com/firebasejs/12.17.1/firebase-app.js";
+
+import {
+    getAuth,
+    signInAnonymously,
+    onAuthStateChanged
+} from
+    "https://www.gstatic.com/firebasejs/12.17.1/firebase-auth.js";
+
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    updateDoc,
+    onSnapshot,
+    runTransaction,
+    collection,
+    query,
+    where,
+    getDocs,
+    serverTimestamp
+} from
+    "https://www.gstatic.com/firebasejs/12.17.1/firebase-firestore.js";
+
+
+// ========================================
+// FIREBASE CONFIG
+// ========================================
+//
+// PASTE YOUR FIREBASE CONFIG HERE
+//
+// ========================================
+
+const firebaseConfig = {
+
+    apiKey: "PASTE_YOUR_API_KEY_HERE",
+
+    authDomain:
+        "PASTE_YOUR_AUTH_DOMAIN_HERE",
+
+    projectId:
+        "PASTE_YOUR_PROJECT_ID_HERE",
+
+    storageBucket:
+        "PASTE_YOUR_STORAGE_BUCKET_HERE",
+
+    messagingSenderId:
+        "PASTE_YOUR_MESSAGING_SENDER_ID_HERE",
+
+    appId:
+        "PASTE_YOUR_APP_ID_HERE"
+
+};
+
+
+// ========================================
+// INITIALIZE FIREBASE
+// ========================================
+
+const app =
+    initializeApp(firebaseConfig);
+
+const auth =
+    getAuth(app);
+
+const db =
+    getFirestore(app);
+
+
+// ========================================
+// GIFT DATA
 // ========================================
 
 const gifts = [
 
-    // ========================================
-    // I. ELECTRONICS — SWITCH ACCESSORIES
-    // ========================================
+    // ====================================
+    // ELECTRONICS
+    // ====================================
 
     {
         id: "switch-charging-station",
 
-        name: "N1 Joy-Con Charging Station",
+        name:
+            "N1 Joy-Con Charging Station",
 
-        category: "electronics",
+        category:
+            "electronics",
 
-        section: "Switch Accessories",
+        section:
+            "Switch Accessories",
 
         description:
             "A charging station for my Switch because my right Joy-Con isn't charging properly.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🔋🎮",
+        emoji:
+            "🔋🎮",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://share.google/O76lDy5YBKwnk0OZE",
-
-        jointGift: true
+        selectionType:
+            "joint"
 
     },
 
@@ -37,25 +122,29 @@ const gifts = [
     {
         id: "pink-joycons",
 
-        name: "Nintendo Switch Pink Joy-Cons",
+        name:
+            "Nintendo Switch Pink Joy-Cons",
 
-        category: "electronics",
+        category:
+            "electronics",
 
-        section: "Switch Accessories",
+        section:
+            "Switch Accessories",
 
         description:
             "There are some at the Robinsons Toys 'R' Us branch for around ₱4,106, but the price may differ depending on where they're bought.",
 
-        price: "Around ₱4,106*",
+        price:
+            "Around ₱4,106*",
 
-        emoji: "🩷🎮",
+        emoji:
+            "🩷🎮",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://share.google/NzgQW1r0bhOf4Lr2k",
-
-        jointGift: true
+        selectionType:
+            "single"
 
     },
 
@@ -63,541 +152,692 @@ const gifts = [
     {
         id: "switch-case",
 
-        name: "Nintendo Switch Case — Dock-Friendly",
+        name:
+            "Nintendo Switch Case — Dock-Friendly",
 
-        category: "electronics",
+        category:
+            "electronics",
 
-        section: "Switch Accessories",
+        section:
+            "Switch Accessories",
 
         description:
             "A case for my Switch so I can have protection without sacrificing charging capacity. Preferably clear or white!",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🎮🤍",
+        emoji:
+            "🎮🤍",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://share.google/ysTNoeMbaMwaogwt2",
-
-        jointGift: true
+        selectionType:
+            "joint"
 
     },
 
 
-    // ========================================
-    // I. ELECTRONICS — SWITCH GAMES
-    // ========================================
+    // ====================================
+    // SWITCH GAMES
+    // ====================================
 
     {
-        id: "enter-the-gungeon",
+        id:
+            "enter-the-gungeon",
 
-        name: "Enter the Gungeon",
+        name:
+            "Enter the Gungeon",
 
-        category: "electronics",
+        category:
+            "electronics",
 
-        section: "Switch Games",
+        section:
+            "Switch Games",
 
         description:
-            "Enter the Gungeon is a 2016 bullet hell roguelike video game developed by American studio Dodge Roll and published by Devolver Digital. Set in the firearms-themed Gungeon, gameplay follows several player characters called Gungeoneers as they traverse procedurally generated rooms to find a gun that can "kill the past".",
+            "Nintendo Switch game.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🎮",
+        emoji:
+            "🎮",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: true
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "cult-of-the-lamb",
+        id:
+            "cult-of-the-lamb",
 
-        name: "Cult of the Lamb",
+        name:
+            "Cult of the Lamb",
 
-        category: "electronics",
+        category:
+            "electronics",
 
-        section: "Switch Games",
+        section:
+            "Switch Games",
 
         description:
-            "Cult of the Lamb is an action-adventure roguelike and base management game where you play as an adorable, possessed lamb saved from sacrifice by an imprisoned deity. To repay your debt, you must build a loyal woodland following, perform dark rituals, and defeat rival religious leaders in fast-paced dungeons.",
+            "Nintendo Switch game.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🐑",
+        emoji:
+            "🐑",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: true
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "super-smash-bros",
+        id:
+            "super-smash-bros",
 
-        name: "Super Smash Bros.",
+        name:
+            "Super Smash Bros.",
 
-        category: "electronics",
+        category:
+            "electronics",
 
-        section: "Switch Games",
+        section:
+            "Switch Games",
 
         description:
-            "Super Smash Bros. is a series of platform fighting video games published by Nintendo. Created by Masahiro Sakurai, the Super Smash Bros. series is a crossover featuring many characters from other video game series created by Nintendo and other developers.",
+            "Nintendo Switch game.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🥊",
+        emoji:
+            "🥊",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: true
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "surprise-game",
+        id:
+            "surprise-game",
 
-        name: "Surprise Me lol",
+        name:
+            "Surprise Me lol",
 
-        category: "electronics",
+        category:
+            "electronics",
 
-        section: "Switch Games",
+        section:
+            "Switch Games",
 
         description:
-            "A Nintendo Switch game of your choice. Surprise me with something you think I'd like",
+            "Get me a Nintendo Switch game of your choice. Surprise me! lol",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "🎁",
+        emoji:
+            "🎁",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
-    // ========================================
-    // II. MISCELLANEOUS
-    // ========================================
+    // ====================================
+    // MISCELLANEOUS
+    // ====================================
 
     {
-        id: "avatar",
+        id:
+            "avatar",
 
-        name: "Avatar — James Cameron's Avatar",
+        name:
+            "Avatar — James Cameron's Avatar",
 
-        category: "miscellaneous",
+        category:
+            "miscellaneous",
 
-        section: "Miscellaneous",
+        section:
+            "Miscellaneous",
 
         description:
-            "Anything from James Cameron's Avatar franchise! Art, collectibles, books, decorations, merch, etc. Go wild with the topic.",
+            "Anything from James Cameron's Avatar franchise! Figures, collectibles, books, decorations, merch, etc.",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "🌊",
+        emoji:
+            "🌊",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://share.google/O76lDy5YBKwnk0OZE",
-
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
     {
-        id: "ever-after-high",
+        id:
+            "ever-after-high",
 
-        name: "Ever After High",
+        name:
+            "Ever After High",
 
-        category: "miscellaneous",
+        category:
+            "miscellaneous",
 
-        section: "Miscellaneous",
+        section:
+            "Miscellaneous",
 
         description:
-            "Anything Ever After High related! Themed memorabilia, accessories, collectibles, merch, art, etc.",
+            "Anything Ever After High related! Dolls, accessories, collectibles, merch, art, etc.",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "👑",
+        emoji:
+            "👑",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://pin.it/4V4COxtdH",
-
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
     {
-        id: "monster-high",
+        id:
+            "monster-high",
 
-        name: "Monster High",
+        name:
+            "Monster High",
 
-        category: "miscellaneous",
+        category:
+            "miscellaneous",
 
-        section: "Miscellaneous",
+        section:
+            "Miscellaneous",
 
         description:
-            "Anything Monster High related! Themed memorabilia, accessories, collectibles, merch, art, etc.",
+            "Anything Monster High related! Dolls, accessories, collectibles, merch, art, etc.",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "💀",
+        emoji:
+            "💀",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://pin.it/43l4xo99v",
-
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
     {
-        id: "marine-moth",
+        id:
+            "marine-moth",
 
-        name: "Anything Marine or Moth Related",
+        name:
+            "Anything Marine or Moth Related",
 
-        category: "miscellaneous",
+        category:
+            "miscellaneous",
 
-        section: "Miscellaneous",
+        section:
+            "Miscellaneous",
 
         description:
             "Anything marine or moth related! Sea creatures, nautical things, moths, art, decorations, accessories, plushies, collectibles — basically anything you think fits.",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "🐋🦋",
+        emoji:
+            "🐋🦋",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://pin.it/B94IMDmpq",
-
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
     {
-        id: "dnd-dice",
+        id:
+            "dnd-dice",
 
-        name: "D&D Dice Sets",
+        name:
+            "D&D Dice Sets",
 
-        category: "miscellaneous",
+        category:
+            "miscellaneous",
 
-        section: "Miscellaneous",
+        section:
+            "Miscellaneous",
 
         description:
             "A cool set of D&D dice. Feel free to choose whatever colors, theme, or design you think I'd like!",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "🎲",
+        emoji:
+            "🎲",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://pin.it/3k85XACJI",
-
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
     {
-        id: "how-to-train-your-dragon",
+        id:
+            "how-to-train-your-dragon",
 
-        name: "How to Train Your Dragon",
+        name:
+            "How to Train Your Dragon",
 
-        category: "miscellaneous",
+        category:
+            "miscellaneous",
 
-        section: "Miscellaneous",
+        section:
+            "Miscellaneous",
 
         description:
             "Anything from How to Train Your Dragon! Merch, collectibles, books, decorations, etc.",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "🐉",
+        emoji:
+            "🐉",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://pin.it/76XvOxBmk",
-
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
     {
-        id: "existing-fandom-merch",
+        id:
+            "existing-fandom-merch",
 
-        name: "Merch From the Games or Books on My Wishlist",
+        name:
+            "Merch From the Games or Books on My Wishlist",
 
-        category: "miscellaneous",
+        category:
+            "miscellaneous",
 
-        section: "Miscellaneous",
+        section:
+            "Miscellaneous",
 
         description:
             "Any merch related to the games or books mentioned elsewhere in this registry. Surprise me!",
 
-        price: "Up to you ♡",
+        price:
+            "Up to you ♡",
 
-        emoji: "✨",
+        emoji:
+            "✨",
 
-        image: "",
+        image:
+            "",
 
-        reference:
-            "https://pin.it/RXuruO2JU",
-
-        jointGift: false
+        selectionType:
+            "open"
 
     },
 
 
-    // ========================================
-    // III. BOOK COLLECTIONS
-    // ========================================
+    // ====================================
+    // BOOKS
+    // ====================================
 
     {
-        id: "wide-window",
+        id:
+            "wide-window",
 
-        name: "The Wide Window",
+        name:
+            "The Wide Window",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "A Series of Unfortunate Events",
+        section:
+            "A Series of Unfortunate Events",
 
         description:
             "A Series of Unfortunate Events — Book 3 by Lemony Snicket.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "📖",
+        emoji:
+            "📖",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "ersatz-elevator",
+        id:
+            "ersatz-elevator",
 
-        name: "The Ersatz Elevator",
+        name:
+            "The Ersatz Elevator",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "A Series of Unfortunate Events",
+        section:
+            "A Series of Unfortunate Events",
 
         description:
             "A Series of Unfortunate Events — Book 6 by Lemony Snicket.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "📖",
+        emoji:
+            "📖",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "vile-village",
+        id:
+            "vile-village",
 
-        name: "The Vile Village",
+        name:
+            "The Vile Village",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "A Series of Unfortunate Events",
+        section:
+            "A Series of Unfortunate Events",
 
         description:
             "A Series of Unfortunate Events — Book 7 by Lemony Snicket.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "📖",
+        emoji:
+            "📖",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "carnivorous-carnival",
+        id:
+            "carnivorous-carnival",
 
-        name: "The Carnivorous Carnival",
+        name:
+            "The Carnivorous Carnival",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "A Series of Unfortunate Events",
+        section:
+            "A Series of Unfortunate Events",
 
         description:
             "A Series of Unfortunate Events — Book 9 by Lemony Snicket.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "📖",
+        emoji:
+            "📖",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "trese-mass-murders",
+        id:
+            "trese-mass-murders",
 
-        name: "TRESE: Mass Murders",
+        name:
+            "TRESE: Mass Murders",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "TRESE",
+        section:
+            "TRESE",
 
         description:
             "TRESE — Book 3 by Budjette Tan and Kajo Baldisimo.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "📕",
+        emoji:
+            "📕",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "trese-high-tide",
+        id:
+            "trese-high-tide",
 
-        name: "TRESE: High Tide at Midnight",
+        name:
+            "TRESE: High Tide at Midnight",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "TRESE",
+        section:
+            "TRESE",
 
         description:
             "TRESE — Book 6 by Budjette Tan and Kajo Baldisimo.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "📕",
+        emoji:
+            "📕",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "trese-shadow-witness",
+        id:
+            "trese-shadow-witness",
 
-        name: "TRESE: Shadow Witness",
+        name:
+            "TRESE: Shadow Witness",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "TRESE",
+        section:
+            "TRESE",
 
         description:
             "TRESE — Book 7 by Budjette Tan and Kajo Baldisimo.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "📕",
+        emoji:
+            "📕",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "dawn-of-yangchen",
+        id:
+            "dawn-of-yangchen",
 
-        name: "Avatar: The Last Airbender — The Dawn of Yangchen",
+        name:
+            "Avatar: The Last Airbender — The Dawn of Yangchen",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "Avatar: The Last Airbender",
+        section:
+            "Avatar: The Last Airbender",
 
         description:
             "Avatar: The Last Airbender novel — The Dawn of Yangchen.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🌊📖",
+        emoji:
+            "🌊📖",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "legacy-of-yangchen",
+        id:
+            "legacy-of-yangchen",
 
-        name: "Avatar: The Last Airbender — The Legacy of Yangchen",
+        name:
+            "Avatar: The Last Airbender — The Legacy of Yangchen",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "Avatar: The Last Airbender",
+        section:
+            "Avatar: The Last Airbender",
 
         description:
             "Avatar: The Last Airbender novel — The Legacy of Yangchen.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🌊📖",
+        emoji:
+            "🌊📖",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     },
 
 
     {
-        id: "rise-of-kyoshi",
+        id:
+            "rise-of-kyoshi",
 
-        name: "Avatar: The Last Airbender — The Rise of Kyoshi",
+        name:
+            "Avatar: The Last Airbender — The Rise of Kyoshi",
 
-        category: "books",
+        category:
+            "books",
 
-        section: "Avatar: The Last Airbender",
+        section:
+            "Avatar: The Last Airbender",
 
         description:
             "Avatar: The Last Airbender novel — The Rise of Kyoshi.",
 
-        price: "Varies by seller",
+        price:
+            "Varies by seller",
 
-        emoji: "🌊📖",
+        emoji:
+            "🌊📖",
 
-        image: "",
+        image:
+            "",
 
-        jointGift: false
+        selectionType:
+            "single"
 
     }
 
@@ -605,7 +845,7 @@ const gifts = [
 
 
 // ========================================
-// WEBSITE ELEMENTS
+// DOM ELEMENTS
 // ========================================
 
 const giftGrid =
@@ -625,27 +865,30 @@ const categoryButtons =
 
 
 // ========================================
+// CURRENT STATE
+// ========================================
+
+let currentGift = null;
+
+let currentSelections = {};
+
+
+// ========================================
 // CATEGORY NAME
 // ========================================
 
 function getCategoryName(category) {
 
     if (category === "electronics") {
-
         return "Electronics";
-
     }
 
     if (category === "miscellaneous") {
-
         return "Miscellaneous";
-
     }
 
     if (category === "books") {
-
         return "Book Collections";
-
     }
 
     return category;
@@ -653,7 +896,7 @@ function getCategoryName(category) {
 
 
 // ========================================
-// PLACEHOLDER IMAGE
+// PLACEHOLDER
 // ========================================
 
 function createPlaceholder(emoji) {
@@ -672,12 +915,175 @@ function createPlaceholder(emoji) {
 
 
 // ========================================
+// AUTHENTICATION
+// ========================================
+
+async function startAnonymousLogin() {
+
+    try {
+
+        await signInAnonymously(auth);
+
+        console.log(
+            "Anonymous visitor signed in."
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Anonymous login failed:",
+            error
+        );
+
+        alert(
+            "The registry couldn't connect to the selection system. Please refresh and try again."
+        );
+
+    }
+
+}
+
+
+// ========================================
+// FIRESTORE DATA
+// ========================================
+
+async function getGiftStatus(giftId) {
+
+    const giftRef =
+        doc(
+            db,
+            "giftStatus",
+            giftId
+        );
+
+    const snapshot =
+        await getDoc(giftRef);
+
+
+    if (!snapshot.exists()) {
+
+        return {
+            selected: false,
+            contributorCount: 0
+        };
+
+    }
+
+
+    return snapshot.data();
+
+}
+
+
+// ========================================
+// LISTEN FOR CHANGES
+// ========================================
+//
+// This makes the website update when another
+// person selects something.
+//
+
+function listenToGift(gift) {
+
+    const giftRef =
+        doc(
+            db,
+            "giftStatus",
+            gift.id
+        );
+
+
+    onSnapshot(
+        giftRef,
+        function(snapshot) {
+
+            if (snapshot.exists()) {
+
+                currentSelections[gift.id] =
+                    snapshot.data();
+
+            } else {
+
+                currentSelections[gift.id] = {
+
+                    selected: false,
+
+                    contributorCount: 0
+
+                };
+
+            }
+
+
+            displayGifts(
+                getActiveCategory()
+            );
+
+        },
+
+        function(error) {
+
+            console.error(
+                "Firestore listener error:",
+                error
+            );
+
+        }
+    );
+
+}
+
+
+// ========================================
+// INITIALIZE LISTENERS
+// ========================================
+
+function initializeGiftListeners() {
+
+    gifts.forEach(
+        function(gift) {
+
+            listenToGift(gift);
+
+        }
+    );
+
+}
+
+
+// ========================================
+// GET ACTIVE CATEGORY
+// ========================================
+
+function getActiveCategory() {
+
+    const active =
+        document.querySelector(
+            ".category.active"
+        );
+
+
+    if (!active) {
+
+        return "all";
+
+    }
+
+
+    return active.dataset.category;
+
+}
+
+
+// ========================================
 // DISPLAY GIFTS
 // ========================================
 
 function displayGifts(category = "all") {
 
     giftGrid.innerHTML = "";
+
 
     let giftsToShow;
 
@@ -690,9 +1096,11 @@ function displayGifts(category = "all") {
 
         giftsToShow =
             gifts.filter(
-                function (gift) {
+                function(gift) {
 
-                    return gift.category === category;
+                    return (
+                        gift.category === category
+                    );
 
                 }
             );
@@ -701,7 +1109,7 @@ function displayGifts(category = "all") {
 
 
     giftsToShow.forEach(
-        function (gift) {
+        function(gift) {
 
             const card =
                 document.createElement("div");
@@ -710,9 +1118,9 @@ function displayGifts(category = "all") {
                 "gift-card";
 
 
-            // -----------------------------
+            // ====================================
             // IMAGE
-            // -----------------------------
+            // ====================================
 
             const imageWrapper =
                 document.createElement("div");
@@ -737,7 +1145,7 @@ function displayGifts(category = "all") {
 
 
                 image.onerror =
-                    function () {
+                    function() {
 
                         image.remove();
 
@@ -765,9 +1173,9 @@ function displayGifts(category = "all") {
             }
 
 
-            // -----------------------------
+            // ====================================
             // INFORMATION
-            // -----------------------------
+            // ====================================
 
             const info =
                 document.createElement("div");
@@ -816,6 +1224,10 @@ function displayGifts(category = "all") {
                 gift.price;
 
 
+            // ====================================
+            // STATUS
+            // ====================================
+
             const status =
                 document.createElement("div");
 
@@ -823,22 +1235,89 @@ function displayGifts(category = "all") {
                 "gift-status";
 
 
-            if (gift.jointGift) {
+            const data =
+                currentSelections[gift.id];
 
-                status.textContent =
-                    "♡ Available for joint gift";
 
-            } else {
+            if (
+                gift.selectionType === "single"
+            ) {
 
-                status.textContent =
-                    "♡ Available";
+                if (
+                    data &&
+                    data.selected === true
+                ) {
+
+                    status.textContent =
+                        "♡ Selected";
+
+                } else {
+
+                    status.textContent =
+                        "♡ Available";
+
+                }
 
             }
 
 
-            // -----------------------------
-            // PUT INFORMATION TOGETHER
-            // -----------------------------
+            else if (
+                gift.selectionType === "joint"
+            ) {
+
+                const count =
+                    data?.contributorCount || 0;
+
+
+                if (count === 0) {
+
+                    status.textContent =
+                        "🤝 Available for a joint gift";
+
+                } else {
+
+                    status.textContent =
+                        `🤝 ${count} ${
+                            count === 1
+                                ? "person"
+                                : "people"
+                        } contributing`;
+
+                }
+
+            }
+
+
+            else if (
+                gift.selectionType === "open"
+            ) {
+
+                const count =
+                    data?.contributorCount || 0;
+
+
+                if (count === 0) {
+
+                    status.textContent =
+                        "♡ Open — surprise me!";
+
+                } else {
+
+                    status.textContent =
+                        `♡ ${count} ${
+                            count === 1
+                                ? "person"
+                                : "people"
+                        } getting something`;
+
+                }
+
+            }
+
+
+            // ====================================
+            // ASSEMBLE CARD
+            // ====================================
 
             info.appendChild(
                 categoryLabel
@@ -870,13 +1349,9 @@ function displayGifts(category = "all") {
             );
 
 
-            // -----------------------------
-            // OPEN MODAL
-            // -----------------------------
-
             card.addEventListener(
                 "click",
-                function () {
+                function() {
 
                     openGift(gift);
 
@@ -899,14 +1374,14 @@ function displayGifts(category = "all") {
 // ========================================
 
 categoryButtons.forEach(
-    function (button) {
+    function(button) {
 
         button.addEventListener(
             "click",
-            function () {
+            function() {
 
                 categoryButtons.forEach(
-                    function (otherButton) {
+                    function(otherButton) {
 
                         otherButton.classList.remove(
                             "active"
@@ -933,10 +1408,14 @@ categoryButtons.forEach(
 
 
 // ========================================
-// OPEN GIFT MODAL
+// OPEN MODAL
 // ========================================
 
 function openGift(gift) {
+
+    currentGift =
+        gift;
+
 
     const modalImageWrapper =
         document.getElementById(
@@ -985,17 +1464,14 @@ function openGift(gift) {
         gift.price;
 
 
-    modalStatus.textContent =
-        gift.jointGift
-            ? "♡ Available for a joint gift"
-            : "♡ Available";
+    updateModalStatus(
+        gift,
+        modalStatus
+    );
 
 
-    // -----------------------------
-    // IMAGE
-    // -----------------------------
-
-    modalImageWrapper.innerHTML = "";
+    modalImageWrapper.innerHTML =
+        "";
 
 
     if (gift.image) {
@@ -1011,9 +1487,10 @@ function openGift(gift) {
 
 
         image.onerror =
-            function () {
+            function() {
 
-                modalImageWrapper.innerHTML = "";
+                modalImageWrapper.innerHTML =
+                    "";
 
                 modalImageWrapper.appendChild(
                     createPlaceholder(
@@ -1039,11 +1516,538 @@ function openGift(gift) {
     }
 
 
+    updateSelectButton(
+        gift
+    );
+
+
     modal.classList.remove(
         "hidden"
     );
 
 }
+
+
+// ========================================
+// MODAL STATUS
+// ========================================
+
+function updateModalStatus(
+    gift,
+    element
+) {
+
+    const data =
+        currentSelections[gift.id];
+
+
+    if (
+        gift.selectionType === "single"
+    ) {
+
+        if (
+            data &&
+            data.selected
+        ) {
+
+            element.textContent =
+                "♡ Someone has already selected this gift.";
+
+        } else {
+
+            element.textContent =
+                "♡ This gift is currently available.";
+
+        }
+
+    }
+
+
+    else if (
+        gift.selectionType === "joint"
+    ) {
+
+        const count =
+            data?.contributorCount || 0;
+
+
+        if (count === 0) {
+
+            element.textContent =
+                "🤝 No one has joined this gift yet.";
+
+        } else {
+
+            element.textContent =
+                `🤝 ${count} ${
+                    count === 1
+                        ? "person is"
+                        : "people are"
+                } contributing.`;
+
+        }
+
+    }
+
+
+    else if (
+        gift.selectionType === "open"
+    ) {
+
+        const count =
+            data?.contributorCount || 0;
+
+
+        element.textContent =
+            count === 0
+                ? "♡ You're free to choose your own gift from this theme."
+                : `♡ ${count} ${
+                    count === 1
+                        ? "person has"
+                        : "people have"
+                } chosen something from this theme.`;
+
+    }
+
+}
+
+
+// ========================================
+// BUTTON TEXT
+// ========================================
+
+function updateSelectButton(gift) {
+
+    if (
+        gift.selectionType === "single"
+    ) {
+
+        const selected =
+            currentSelections[gift.id]?.selected;
+
+
+        if (selected) {
+
+            selectButton.textContent =
+                "Already Selected ♡";
+
+            selectButton.disabled =
+                true;
+
+        } else {
+
+            selectButton.textContent =
+                "I've Got This ♡";
+
+            selectButton.disabled =
+                false;
+
+        }
+
+    }
+
+
+    else if (
+        gift.selectionType === "joint"
+    ) {
+
+        selectButton.textContent =
+            "Join This Gift ♡";
+
+        selectButton.disabled =
+            false;
+
+    }
+
+
+    else {
+
+        selectButton.textContent =
+            "I'm Getting Something From This ♡";
+
+        selectButton.disabled =
+            false;
+
+    }
+
+}
+
+
+// ========================================
+// SELECT GIFT
+// ========================================
+
+async function selectGift(gift) {
+
+    if (!auth.currentUser) {
+
+        alert(
+            "Please wait a moment and try again."
+        );
+
+        return;
+
+    }
+
+
+    const uid =
+        auth.currentUser.uid;
+
+
+    const giftRef =
+        doc(
+            db,
+            "giftStatus",
+            gift.id
+        );
+
+
+    const mySelectionRef =
+        doc(
+            db,
+            "selections",
+            `${uid}_${gift.id}`
+        );
+
+
+    try {
+
+        selectButton.disabled =
+            true;
+
+
+        // ====================================
+        // SINGLE GIFT
+        // ====================================
+
+        if (
+            gift.selectionType === "single"
+        ) {
+
+            await runTransaction(
+                db,
+                async function(transaction) {
+
+                    const giftSnapshot =
+                        await transaction.get(
+                            giftRef
+                        );
+
+
+                    if (
+                        giftSnapshot.exists() &&
+                        giftSnapshot.data().selected
+                    ) {
+
+                        throw new Error(
+                            "ALREADY_SELECTED"
+                        );
+
+                    }
+
+
+                    transaction.set(
+                        giftRef,
+                        {
+                            selected: true,
+
+                            contributorCount: 1,
+
+                            updatedAt:
+                                serverTimestamp()
+                        },
+                        {
+                            merge: true
+                        }
+                    );
+
+
+                    transaction.set(
+                        mySelectionRef,
+                        {
+                            giftId:
+                                gift.id,
+
+                            uid:
+                                uid,
+
+                            selectionType:
+                                "single",
+
+                            createdAt:
+                                serverTimestamp()
+                        }
+                    );
+
+                }
+            );
+
+
+            alert(
+                "Gift selected! ♡ Your selection is anonymous."
+            );
+
+        }
+
+
+        // ====================================
+        // JOINT GIFT
+        // ====================================
+
+        else if (
+            gift.selectionType === "joint"
+        ) {
+
+            const alreadySelected =
+                await getDoc(
+                    mySelectionRef
+                );
+
+
+            if (
+                alreadySelected.exists()
+            ) {
+
+                alert(
+                    "You've already joined this gift ♡"
+                );
+
+                return;
+
+            }
+
+
+            await runTransaction(
+                db,
+                async function(transaction) {
+
+                    const giftSnapshot =
+                        await transaction.get(
+                            giftRef
+                        );
+
+
+                    let count = 0;
+
+
+                    if (
+                        giftSnapshot.exists()
+                    ) {
+
+                        count =
+                            giftSnapshot.data()
+                                .contributorCount || 0;
+
+                    }
+
+
+                    transaction.set(
+                        giftRef,
+                        {
+                            selected: true,
+
+                            contributorCount:
+                                count + 1,
+
+                            updatedAt:
+                                serverTimestamp()
+                        },
+                        {
+                            merge: true
+                        }
+                    );
+
+
+                    transaction.set(
+                        mySelectionRef,
+                        {
+                            giftId:
+                                gift.id,
+
+                            uid:
+                                uid,
+
+                            selectionType:
+                                "joint",
+
+                            createdAt:
+                                serverTimestamp()
+                        }
+                    );
+
+                }
+            );
+
+
+            alert(
+                "You've joined the gift! ♡ Your identity is anonymous."
+            );
+
+        }
+
+
+        // ====================================
+        // OPEN GIFT
+        // ====================================
+
+        else if (
+            gift.selectionType === "open"
+        ) {
+
+            const alreadySelected =
+                await getDoc(
+                    mySelectionRef
+                );
+
+
+            if (
+                alreadySelected.exists()
+            ) {
+
+                alert(
+                    "You've already chosen something from this category ♡"
+                );
+
+                return;
+
+            }
+
+
+            await runTransaction(
+                db,
+                async function(transaction) {
+
+                    const giftSnapshot =
+                        await transaction.get(
+                            giftRef
+                        );
+
+
+                    let count = 0;
+
+
+                    if (
+                        giftSnapshot.exists()
+                    ) {
+
+                        count =
+                            giftSnapshot.data()
+                                .contributorCount || 0;
+
+                    }
+
+
+                    transaction.set(
+                        giftRef,
+                        {
+                            selected: true,
+
+                            contributorCount:
+                                count + 1,
+
+                            updatedAt:
+                                serverTimestamp()
+                        },
+                        {
+                            merge: true
+                        }
+                    );
+
+
+                    transaction.set(
+                        mySelectionRef,
+                        {
+                            giftId:
+                                gift.id,
+
+                            uid:
+                                uid,
+
+                            selectionType:
+                                "open",
+
+                            createdAt:
+                                serverTimestamp()
+                        }
+                    );
+
+                }
+            );
+
+
+            alert(
+                "Got it! ♡ Your selection is anonymous."
+            );
+
+        }
+
+
+        closeModal();
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Selection error:",
+            error
+        );
+
+
+        if (
+            error.message ===
+            "ALREADY_SELECTED"
+        ) {
+
+            alert(
+                "Someone just selected this gift before you! ♡"
+            );
+
+        } else {
+
+            alert(
+                "Something went wrong. Please try again."
+            );
+
+        }
+
+    }
+
+
+    finally {
+
+        selectButton.disabled =
+            false;
+
+
+        updateSelectButton(
+            gift
+        );
+
+    }
+
+}
+
+
+// ========================================
+// SELECT BUTTON
+// ========================================
+
+selectButton.addEventListener(
+    "click",
+    function() {
+
+        if (currentGift) {
+
+            selectGift(
+                currentGift
+            );
+
+        }
+
+    }
+);
 
 
 // ========================================
@@ -1056,6 +2060,9 @@ function closeModal() {
         "hidden"
     );
 
+    currentGift =
+        null;
+
 }
 
 
@@ -1067,7 +2074,7 @@ closeModalButton.addEventListener(
 
 modal.addEventListener(
     "click",
-    function (event) {
+    function(event) {
 
         if (
             event.target === modal
@@ -1082,23 +2089,18 @@ modal.addEventListener(
 
 
 // ========================================
-// SELECT GIFT
+// START
 // ========================================
 
-selectButton.addEventListener(
-    "click",
-    function () {
+async function startRegistry() {
 
-        alert(
-            "The anonymous gift selection system will be connected next! ♡"
-        );
+    displayGifts("all");
 
-    }
-);
+    await startAnonymousLogin();
+
+    initializeGiftListeners();
+
+}
 
 
-// ========================================
-// START WEBSITE
-// ========================================
-
-displayGifts("all");
+startRegistry();
