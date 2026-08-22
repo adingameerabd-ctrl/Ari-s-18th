@@ -1,3 +1,5 @@
+alert("JAVASCRIPT IS WORKING!");
+
 const gifts = [
     {
         id: "enter-the-gungeon",
