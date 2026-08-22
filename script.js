@@ -100,7 +100,7 @@ const gifts = [
         section: "Switch Games",
 
         description:
-            "Nintendo Switch game.",
+            "Enter the Gungeon is a 2016 bullet hell roguelike video game developed by American studio Dodge Roll and published by Devolver Digital. Set in the firearms-themed Gungeon, gameplay follows several player characters called Gungeoneers as they traverse procedurally generated rooms to find a gun that can "kill the past".",
 
         price: "Varies by seller",
 
@@ -123,7 +123,7 @@ const gifts = [
         section: "Switch Games",
 
         description:
-            "Nintendo Switch game.",
+            "Cult of the Lamb is an action-adventure roguelike and base management game where you play as an adorable, possessed lamb saved from sacrifice by an imprisoned deity. To repay your debt, you must build a loyal woodland following, perform dark rituals, and defeat rival religious leaders in fast-paced dungeons.",
 
         price: "Varies by seller",
 
@@ -146,7 +146,7 @@ const gifts = [
         section: "Switch Games",
 
         description:
-            "Nintendo Switch game.",
+            "Super Smash Bros. is a series of platform fighting video games published by Nintendo. Created by Masahiro Sakurai, the Super Smash Bros. series is a crossover featuring many characters from other video game series created by Nintendo and other developers.",
 
         price: "Varies by seller",
 
@@ -169,7 +169,7 @@ const gifts = [
         section: "Switch Games",
 
         description:
-            "A Nintendo Switch game of your choice. Surprise me! lol",
+            "A Nintendo Switch game of your choice. Surprise me with something you think I'd like",
 
         price: "Up to you ♡",
 
@@ -196,7 +196,7 @@ const gifts = [
         section: "Miscellaneous",
 
         description:
-            "Anything from James Cameron's Avatar franchise! Figures, collectibles, books, decorations, merch, etc. Go wild with the topic.",
+            "Anything from James Cameron's Avatar franchise! Art, collectibles, books, decorations, merch, etc. Go wild with the topic.",
 
         price: "Up to you ♡",
 
@@ -222,7 +222,7 @@ const gifts = [
         section: "Miscellaneous",
 
         description:
-            "Anything Ever After High related! Dolls, accessories, collectibles, merch, art, etc.",
+            "Anything Ever After High related! Themed memorabilia, accessories, collectibles, merch, art, etc.",
 
         price: "Up to you ♡",
 
@@ -248,7 +248,7 @@ const gifts = [
         section: "Miscellaneous",
 
         description:
-            "Anything Monster High related! Dolls, accessories, collectibles, merch, art, etc.",
+            "Anything Monster High related! Themed memorabilia, accessories, collectibles, merch, art, etc.",
 
         price: "Up to you ♡",
 
