@@ -98,8 +98,6 @@ onAuthStateChanged(
 
     }
 );
-
-const gifts = [
     
 // ========================================
 // GIFTS
