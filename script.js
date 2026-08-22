@@ -958,9 +958,11 @@ selectButton.addEventListener(
     }
 );
 
-
 // ========================================
 // START
 // ========================================
+
+console.log("SCRIPT IS RUNNING");
+console.log("NUMBER OF GIFTS:", gifts.length);
 
 displayGifts("all");
