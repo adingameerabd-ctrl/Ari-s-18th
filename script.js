@@ -511,7 +511,7 @@ const gifts = [
         emoji: "🌊📖",
         image: "images/rise-of-kyoshi.jpg",
         jointGift: false
-    }
+    },
 
     // ========================================
     // IV. CLOTHING & WEARABLES
