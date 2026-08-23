@@ -848,9 +848,9 @@ categoryButtons.forEach(
             function () {
 
                 categoryButtons.forEach(
-                    function (other) {
+                    function (otherButton) {
 
-                        other.classList.remove(
+                        otherButton.classList.remove(
                             "active"
                         );
 
@@ -861,8 +861,11 @@ categoryButtons.forEach(
                     "active"
                 );
 
+                const selectedCategory =
+                    button.dataset.category;
+
                 displayGifts(
-                    button.dataset.category
+                    selectedCategory
                 );
 
             }
@@ -870,7 +873,6 @@ categoryButtons.forEach(
 
     }
 );
-
 
 // ========================================
 // OPEN MODAL
