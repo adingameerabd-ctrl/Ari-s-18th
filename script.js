@@ -517,83 +517,48 @@ const gifts = [
     // IV. CLOTHING & WEARABLES
     // ========================================
 
-{
+    {
 
-    id: "eeveelutions",
+        id: "eeveelutions",
+        name: "Eeveelutions",
+        category: "clothing",
+        section: "Themes",
+        description: "Anything Eeveelutions-related! Clothes, shoes, accessories, bags, jewelry, socks, hats, or anything else you think would suit the theme.",
+        price: "Up to you ♡",
+        emoji: "🦊✨",
+        image: "images/eeveelutions.jpg",
+        jointGift: false,
+        unlimited: true
+    },
 
-    name: "Eeveelutions",
+    {
+    
+        id: "fantasy-medieval-attire",
+        name: "Fantasy / Medieval Attire",
+        category: "clothing",
+        section: "Themes",
+        description: "Fantasy or medieval-inspired clothing and accessories! Think cloaks, dresses, tunics, corsets, belts, jewelry, boots, or anything that looks like it belongs in a fantasy world.",
+        price: "Up to you ♡",
+        emoji: "🏰🗡️",
+        image: "images/fantasy-medieval-attire.jpg",
+        jointGift: false,
+        unlimited: true
 
-    category: "clothing",
+    },
 
-    section: "Themes",
+    {
+        id: "cosplay-pieces",
+        name: "Cosplay Pieces",
+        category: "clothing",
+        section: "Themes",
+        description: "Any cosplay pieces from characters I've expressed interest in! It doesn't have to be a complete cosplay — individual clothing pieces, accessories, props, or other character-inspired items are all welcome.",
+        price: "Up to you ♡",
+        emoji: "🎭✨",
+        image: "images/cosplay-pieces.jpg",
+        jointGift: false,
+        unlimited: true
 
-    description:
-
-        "Anything Eeveelutions-related! Clothes, shoes, accessories, bags, jewelry, socks, hats, or anything else you think would suit the theme.",
-
-    price: "Up to you ♡",
-
-    emoji: "🦊✨",
-
-    image: "images/eeveelutions.jpg",
-
-    jointGift: false,
-
-    unlimited: true
-
-},
-
-{
-
-    id: "fantasy-medieval-attire",
-
-    name: "Fantasy / Medieval Attire",
-
-    category: "clothing",
-
-    section: "Themes",
-
-    description:
-
-        "Fantasy or medieval-inspired clothing and accessories! Think cloaks, dresses, tunics, corsets, belts, jewelry, boots, or anything that looks like it belongs in a fantasy world.",
-
-    price: "Up to you ♡",
-
-    emoji: "🏰🗡️",
-
-    image: "images/fantasy-medieval-attire.jpg",
-
-    jointGift: false,
-
-    unlimited: true
-
-},
-
-{
-
-    id: "cosplay-pieces",
-
-    name: "Cosplay Pieces",
-
-    category: "clothing",
-
-    section: "Themes",
-
-    description:
-
-        "Any cosplay pieces from characters I've expressed interest in! It doesn't have to be a complete cosplay — individual clothing pieces, accessories, props, or other character-inspired items are all welcome.",
-
-    price: "Up to you ♡",
-
-    emoji: "🎭✨",
-
-    image: "images/cosplay-pieces.jpg",
-
-    jointGift: false,
-
-    unlimited: true
-
-}
+    }
 
 ];
 
@@ -1095,7 +1060,5 @@ selectButton.addEventListener(
 // START
 // ========================================
 
-console.log("SCRIPT IS RUNNING");
-console.log("NUMBER OF GIFTS:", gifts.length);
 
 displayGifts("all");
