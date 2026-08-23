@@ -558,7 +558,7 @@ const gifts = [
         jointGift: false,
         unlimited: true
 
-    }
+    },
 
 ];
 
