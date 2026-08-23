@@ -153,6 +153,56 @@ const gifts = [
         jointGift: true
     },
 
+    // ========================================
+    // I. ELECTRONICS — GADGETS & APPLIANCES
+    // ========================================
+
+{
+
+    id: "wireless-noise-canceling-mic",
+
+    name: "Mini Wireless Noise-Canceling Mic",
+
+    category: "electronics",
+
+    section: "Gadgets & Appliances",
+
+    description:
+
+        "A small wireless noise-canceling microphone for recording, calls, videos, or whatever I end up using it for! Preferably black or pink.",
+
+    price: "Varies by seller",
+
+    emoji: "🎙️",
+
+    image: "images/wireless-noise-canceling-mic.jpg",
+
+    jointGift: false
+},
+
+{
+
+    id: "foldable-mini-hairdryer",
+
+    name: "Foldable Mini Hairdryer",
+
+    category: "electronics",
+
+    section: "Gadgets & Appliances",
+
+    description:
+
+        "A compact, foldable hairdryer that's easy to store and bring around. Something small and travel-friendly would be mice since ako lang naman ang gagamit.",
+
+    price: "Varies by seller",
+
+    emoji: "💨",
+
+    image: "images/foldable-mini-hairdryer.jpg",
+
+    jointGift: false
+
+},
 
     // ========================================
     // I. ELECTRONICS — SWITCH GAMES
@@ -462,6 +512,88 @@ const gifts = [
         image: "images/rise-of-kyoshi.jpg",
         jointGift: false
     }
+
+    // ========================================
+    // IV. CLOTHING & WEARABLES
+    // ========================================
+
+{
+
+    id: "eeveelutions",
+
+    name: "Eeveelutions",
+
+    category: "clothing",
+
+    section: "Themes",
+
+    description:
+
+        "Anything Eeveelutions-related! Clothes, shoes, accessories, bags, jewelry, socks, hats, or anything else you think would suit the theme.",
+
+    price: "Up to you ♡",
+
+    emoji: "🦊✨",
+
+    image: "images/eeveelutions.jpg",
+
+    jointGift: false,
+
+    unlimited: true
+
+},
+
+{
+
+    id: "fantasy-medieval-attire",
+
+    name: "Fantasy / Medieval Attire",
+
+    category: "clothing",
+
+    section: "Themes",
+
+    description:
+
+        "Fantasy or medieval-inspired clothing and accessories! Think cloaks, dresses, tunics, corsets, belts, jewelry, boots, or anything that looks like it belongs in a fantasy world.",
+
+    price: "Up to you ♡",
+
+    emoji: "🏰🗡️",
+
+    image: "images/fantasy-medieval-attire.jpg",
+
+    jointGift: false,
+
+    unlimited: true
+
+},
+
+{
+
+    id: "cosplay-pieces",
+
+    name: "Cosplay Pieces",
+
+    category: "clothing",
+
+    section: "Themes",
+
+    description:
+
+        "Any cosplay pieces from characters I've expressed interest in! It doesn't have to be a complete cosplay — individual clothing pieces, accessories, props, or other character-inspired items are all welcome.",
+
+    price: "Up to you ♡",
+
+    emoji: "🎭✨",
+
+    image: "images/cosplay-pieces.jpg",
+
+    jointGift: false,
+
+    unlimited: true
+
+}
 
 ];
 
